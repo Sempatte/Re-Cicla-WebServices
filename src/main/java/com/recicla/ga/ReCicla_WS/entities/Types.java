@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 //Types of Rewards CLASS
 
-@Entity 
+@Entity
 @Table(name="Types")
 public class Types {
     @Id
