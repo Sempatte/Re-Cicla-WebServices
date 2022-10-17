@@ -12,13 +12,8 @@ import java.util.List;
 public class UsuarioServiceImpl implements IUsuarioService {
     @Autowired
     private IUsuarioRepository uR;
-
-
     @Override
-    public void Insert(Usuario usuario) {
-
-    }
-
+    public void Insert(Usuario usuario) {}
     @Override
     public List<Usuario> list() {
         return uR.findAll();
