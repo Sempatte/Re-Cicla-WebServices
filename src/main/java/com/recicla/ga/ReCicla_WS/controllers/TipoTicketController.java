@@ -20,4 +20,6 @@ public class TipoTicketController {
     public void eliminar(@PathVariable("id") Integer id){ttService.delete(id);}
     @PutMapping
     public void modificar(@RequestBody TipoTicket tt){ttService.Insert((tt));}
+    @PostMapping("/buscar")
+    public List<TipoTicket>buscar(@RequestBody TipoTicket tt){return ttService.search(tt.getCategoria());}
 }

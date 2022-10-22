@@ -21,4 +21,9 @@ public class TipoTicketServiceImpl implements ITipoTicketService {
     public void delete(int idTipoTicket) {
         ttR.deleteById(idTipoTicket);
     }
+
+    @Override
+    public List<TipoTicket> search(String Categoria) {
+        return ttR.buscarCategoria(Categoria);
+    }
 }
