@@ -5,4 +5,5 @@ import java.util.List;
 public interface ITipoTicketService {
     public void Insert(TipoTicket tipoTicket);
     List<TipoTicket> list();
+    public void delete(int idTipoTicket);
 }
