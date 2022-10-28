@@ -13,7 +13,17 @@ public class TipoTicketServiceImpl implements ITipoTicketService {
     @Autowired
     private ITipoTicketRepository ttR;
     @Override
-    public void Insert(TipoTicket tipoTicket) {}
+    public void Insert(TipoTicket tipoTicket) {ttR.save(tipoTicket);}
     @Override
     public List<TipoTicket> list() { return ttR.findAll();}
+
+    @Override
+    public void delete(int idTipoTicket) {
+        ttR.deleteById(idTipoTicket);
+    }
+
+    @Override
+    public List<TipoTicket> search(String Categoria) {
+        return ttR.buscarCategoria(Categoria);
+    }
 }
