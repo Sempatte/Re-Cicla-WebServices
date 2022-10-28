@@ -33,13 +33,10 @@ public class UsuarioController {
     }
 
     @PostMapping("/buscar")
-    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException {
+    public List<Usuario> buscar(@RequestBody String name) throws ParseException {
         List<Usuario> listaPropietarios;
-        pr.setNombre(pr.getNombre());
-        listaPropietarios = userService.findNameUser(pr.getNombre());
+        listaPropietarios = userService.findNameUser(name);
         return listaPropietarios;
 
     }
-
-
 }
