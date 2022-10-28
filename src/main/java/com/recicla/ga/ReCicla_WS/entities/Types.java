@@ -15,4 +15,35 @@ public class Types {
 
     @Column(name = "Description", length = 40, nullable = false)
     private String Description;
+
+    public Types() {}
+    public Types(int id, String name, String description) {
+        this.id = id;
+        Name = name;
+        Description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
 }
