@@ -9,7 +9,7 @@ import com.recicla.ga.ReCicla_WS.entities.TipoTicket;
 import java.util.List;
 
 @Repository
-public interface ITipoTicketRepository extends JpaRepository<TipoTicket, Integer> {
+public interface ITipoTicketDAO extends JpaRepository<TipoTicket, Integer> {
     @Query("from TipoTicket tt where tt.Categoria like %:Categoria")
     List<TipoTicket>buscarCategoria(@Param("Categoria")String Categoria);
 }

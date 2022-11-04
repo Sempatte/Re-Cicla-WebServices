@@ -2,7 +2,7 @@ package com.recicla.ga.ReCicla_WS.controllers;
 
 
 import com.recicla.ga.ReCicla_WS.entities.Ubication;
-import com.recicla.ga.ReCicla_WS.serviceinterfaces.IUbicationService;
+import com.recicla.ga.ReCicla_WS.services.IUbicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

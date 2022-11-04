@@ -3,8 +3,8 @@ package com.recicla.ga.ReCicla_WS.serviceimpls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.recicla.ga.ReCicla_WS.entities.Types;
-import com.recicla.ga.ReCicla_WS.repositories.ITypesRepository;
-import com.recicla.ga.ReCicla_WS.serviceinterfaces.ITypesService;
+import com.recicla.ga.ReCicla_WS.repositories.ITypesDAO;
+import com.recicla.ga.ReCicla_WS.services.ITypesService;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class TypesServiceImpl implements ITypesService {
     @Autowired
-    private ITypesRepository typeService;
+    private ITypesDAO typeService;
 
     @Override
     public void Insert(Types types) {

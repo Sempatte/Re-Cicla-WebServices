@@ -3,7 +3,7 @@ package com.recicla.ga.ReCicla_WS.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
-import com.recicla.ga.ReCicla_WS.serviceinterfaces.IUsuarioService;
+import com.recicla.ga.ReCicla_WS.services.IUsuarioService;
 
 import java.text.ParseException;
 import java.util.List;

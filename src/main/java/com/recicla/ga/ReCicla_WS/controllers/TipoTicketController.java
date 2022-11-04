@@ -1,7 +1,7 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
 import com.recicla.ga.ReCicla_WS.entities.TipoTicket;
-import com.recicla.ga.ReCicla_WS.serviceinterfaces.ITipoTicketService;
+import com.recicla.ga.ReCicla_WS.services.ITipoTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

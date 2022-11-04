@@ -1,7 +1,7 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
 import com.recicla.ga.ReCicla_WS.entities.Types;
-import com.recicla.ga.ReCicla_WS.serviceinterfaces.ITypesService;
+import com.recicla.ga.ReCicla_WS.services.ITypesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

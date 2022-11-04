@@ -1,4 +1,4 @@
-package com.recicla.ga.ReCicla_WS.serviceinterfaces;
+package com.recicla.ga.ReCicla_WS.services;
 
 import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import java.util.List;
