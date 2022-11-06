@@ -34,7 +34,6 @@ public class Usuario {
     @JoinColumn(name = "Historial_id", nullable = false)
     private Historial historial;
 
-
     public Usuario(){
         super();
     }

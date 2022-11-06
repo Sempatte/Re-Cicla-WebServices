@@ -14,11 +14,9 @@ import java.io.IOException;
 @EnableSwagger2
 public class SwaggerConfig {
     @Bean
-    public Docket apiDocket() throws IOException {
+    public Docket apiDocket()  {
 
-        Runtime rt = Runtime.getRuntime();
-        String url = "http://localhost:8080/swagger-ui.html";
-        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()

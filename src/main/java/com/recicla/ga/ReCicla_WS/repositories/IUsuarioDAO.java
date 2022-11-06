@@ -11,5 +11,11 @@ import java.util.List;
 @Repository
 public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
     @Query("from Usuario p where p.nombre like %:UserNames%")
-    List<Usuario> findNameUser(@Param("UserNames") String namePropietario);
+    List<Usuario> BuscarPorNombres(@Param("UserNames") String namePropietario);
+
+    @Query("from Usuario u where u.ubication.Direccion like %:direccion%")
+    List<Usuario> buscarUbicacion(@Param("direccion") String direccion);
+
+    @Query("from Usuario u where u.historial.busquedas like %:busquedas%")
+    List <Usuario> buscarHistorial(@Param("busquedas") String busquedas);
 }

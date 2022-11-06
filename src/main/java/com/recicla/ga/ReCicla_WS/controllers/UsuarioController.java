@@ -7,6 +7,8 @@ import com.recicla.ga.ReCicla_WS.services.IUsuarioService;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/usuarios")
@@ -34,11 +36,19 @@ public class UsuarioController {
 
     @PostMapping("/buscar")
     public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException {
-        List<Usuario> listaPropietarios;
-        pr.setNombre(pr.getNombre());
-        listaPropietarios = userService.findNameUser(pr.getNombre());
-        return listaPropietarios;
+        List<Usuario> listaUsuarios;
+        listaUsuarios = userService.buscarUsuario(pr.getNombre());
+        if (listaUsuarios.isEmpty()) {
+            listaUsuarios = userService.buscarDireccion(pr.getUbication().getDireccion());
+        }
 
+        return listaUsuarios;
+
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Usuario> listarId(@PathVariable("id") Integer id) {
+        return userService.listarId(id);
     }
 
 

@@ -5,17 +5,32 @@ import org.springframework.stereotype.Service;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
 import com.recicla.ga.ReCicla_WS.repositories.IUsuarioDAO;
 import com.recicla.ga.ReCicla_WS.services.IUsuarioService;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@RestController
 public class UsuarioServiceImpl implements IUsuarioService {
     @Autowired
     private IUsuarioDAO userService;
+
+
     @Override
-    public void Insert(Usuario usuario) {
-        userService.save(usuario);
+    @Transactional
+    public boolean Insert(Usuario usuario) {
+        Usuario objUsuario = userService.save(usuario);
+        if (objUsuario == null) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public void delete(int idUsuario) {
+        userService.deleteById(idUsuario);
     }
 
     @Override
@@ -24,8 +39,20 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public void delete(int idUsuario) {
-        userService.deleteById(idUsuario);
+    public List<Usuario> buscarDireccion(String direccion) {
+        return null;
+    }
+
+    @Override
+    public List<Usuario> buscarHistorial(String idHistorial) {
+        return null;
+    }
+
+
+
+    @Override
+    public Optional<Usuario> listarId(int idUsuario) {
+        return Optional.empty();
     }
 
     @Override
@@ -34,7 +61,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public List<Usuario> findNameUser(String UserNames) {
-        return userService.findNameUser(UserNames);
+    public List<Usuario> buscarUsuario(String UserNames) {
+        return userService.BuscarPorNombres(UserNames);
     }
 }
