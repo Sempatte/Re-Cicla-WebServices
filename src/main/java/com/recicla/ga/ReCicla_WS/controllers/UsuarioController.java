@@ -35,7 +35,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/buscar")
-    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException {
+    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException { // Busca por Nombres o Direccion
         List<Usuario> listaUsuarios;
         listaUsuarios = userService.buscarUsuario(pr.getNombre());
         if (listaUsuarios.isEmpty()) {

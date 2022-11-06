@@ -12,7 +12,7 @@ public interface IUsuarioService {
     List<Usuario> list();
 
     List<Usuario> buscarDireccion(String direccion);
-    List<Usuario> buscarHistorial(String idHistorial);
+    List<Usuario> buscarHistorial(String busquedas);
     List<Usuario> buscarUsuario(String UserNames);
 
 

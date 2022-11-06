@@ -40,12 +40,12 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public List<Usuario> buscarDireccion(String direccion) {
-        return null;
+        return userService.buscarUbicacion(direccion);
     }
 
     @Override
-    public List<Usuario> buscarHistorial(String idHistorial) {
-        return null;
+    public List<Usuario> buscarHistorial(String busquedas) {
+        return userService.buscarHistorial(busquedas);
     }
 
 
