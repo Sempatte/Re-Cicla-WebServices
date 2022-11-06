@@ -10,7 +10,12 @@ import java.util.List;
 
 @Repository
 public interface IScoreDAO extends JpaRepository<Score, Integer> {
+
+
     @Query("from Score s where s.usuario.nombre like %:nombreUsuario%")
     List<Score> buscarUsuario(@Param("nombreUsuario") String nombreUsuario);
+
+    @Query("from Score s  where s.nEstrellas =  :nEstrellas ")
+    List<Score> buscarnEstrellas(@Param("nEstrellas") Integer nEstrellas);
 
 }

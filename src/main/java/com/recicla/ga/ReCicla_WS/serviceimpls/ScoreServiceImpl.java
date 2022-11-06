@@ -8,6 +8,7 @@ import com.recicla.ga.ReCicla_WS.services.IScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +28,8 @@ public class ScoreServiceImpl  implements IScoreService {
     }
 
     @Override
-    public void eliminar(int idScore) {
+    @Transactional
+    public void eliminar(int idScore) { scoreService.deleteById((idScore));
 
     }
 
@@ -38,11 +40,21 @@ public class ScoreServiceImpl  implements IScoreService {
 
     @Override
     public List<Score> listar() {
-        return null;
+        return scoreService.findAll();
     }
 
     @Override
     public List<Score> buscarUsuario(String nombreUsuario) {
         return null;
+    }
+
+    @Override
+    public List<Score> buscarnEstrellas(Integer nEstrellas) {
+        return scoreService.buscarnEstrellas(nEstrellas);
+    }
+
+    @Override
+    public Optional<Score> findScoreByID(int idScore) {
+        return Optional.of(scoreService.findById(idScore).orElse(new Score()));
     }
 }

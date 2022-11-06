@@ -24,4 +24,64 @@ public class Score {
     @ManyToOne
     @JoinColumn(name = "User_id", nullable = false)
     private Usuario usuario;
+
+    public Score() {super();}
+
+
+    public Score(int id, int pedidosRealizados, int pedidosEntregados, int pedidosCancelados, int nEstrellas, Usuario usuario) {
+        this.id = id;
+        this.pedidosRealizados = pedidosRealizados;
+        this.pedidosEntregados = pedidosEntregados;
+        this.pedidosCancelados = pedidosCancelados;
+        this.nEstrellas = nEstrellas;
+        this.usuario = usuario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPedidosRealizados() {
+        return pedidosRealizados;
+    }
+
+    public void setPedidosRealizados(int pedidosRealizados) {
+        this.pedidosRealizados = pedidosRealizados;
+    }
+
+    public int getPedidosEntregados() {
+        return pedidosEntregados;
+    }
+
+    public void setPedidosEntregados(int pedidosEntregados) {
+        this.pedidosEntregados = pedidosEntregados;
+    }
+
+    public int getPedidosCancelados() {
+        return pedidosCancelados;
+    }
+
+    public void setPedidosCancelados(int pedidosCancelados) {
+        this.pedidosCancelados = pedidosCancelados;
+    }
+
+    public int getnEstrellas() {
+        return nEstrellas;
+    }
+
+    public void setnEstrellas(int nEstrellas) {
+        this.nEstrellas = nEstrellas;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
