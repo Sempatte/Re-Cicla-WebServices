@@ -26,17 +26,19 @@ public class Usuario {
     @Column(name="esReciclador", nullable = false)
     private Boolean esReciclador;
 
-    @Column(name="UbicationID", length = 10, nullable = false)
-    private int Ubication_id;
+    @ManyToOne
+    @JoinColumn(name = "Ubication_id", nullable = false)
+    private Ubication ubication;
 
-    @Column(name="HistorialID", length = 10, nullable = false)
-    private int Historial_id;
+    @ManyToOne
+    @JoinColumn(name = "Historial_id", nullable = false)
+    private Historial historial;
 
     public Usuario(){
-
+        super();
     }
 
-    public Usuario(int id, String nombre, String apellido, String email, String telefono, String dni, Boolean esReciclador, int ubication_id, int historial_id) {
+    public Usuario(int id, String nombre, String apellido, String email, String telefono, String dni, Boolean esReciclador, Ubication ubication, Historial historial) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -44,55 +46,79 @@ public class Usuario {
         this.telefono = telefono;
         this.dni = dni;
         this.esReciclador = esReciclador;
-        Ubication_id = ubication_id;
-        Historial_id = historial_id;
+        this.ubication = ubication;
+        this.historial = historial;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public Boolean getEsReciclador() {
-        return esReciclador;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
     public void setDni(String dni) {
         this.dni = dni;
     }
 
+    public Boolean getEsReciclador() {
+        return esReciclador;
+    }
+
     public void setEsReciclador(Boolean esReciclador) {
         this.esReciclador = esReciclador;
+    }
+
+    public Ubication getUbication() {
+        return ubication;
+    }
+
+    public void setUbication(Ubication ubication) {
+        this.ubication = ubication;
+    }
+
+    public Historial getHistorial() {
+        return historial;
+    }
+
+    public void setHistorial(Historial historial) {
+        this.historial = historial;
     }
 }
