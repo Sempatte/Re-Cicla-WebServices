@@ -57,7 +57,7 @@ public class UsuarioController {
 
     @GetMapping("/{id}")
     public Optional<Usuario> listarId(@PathVariable("id") Integer id) {
-        return userService.listarId(id);
+        return userService.findUserByID(id);
     }
 
 
