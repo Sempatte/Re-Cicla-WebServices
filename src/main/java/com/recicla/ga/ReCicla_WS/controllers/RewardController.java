@@ -2,7 +2,8 @@ package com.recicla.ga.ReCicla_WS.controllers;
 
 import com.recicla.ga.ReCicla_WS.entities.Reward;
 
-import com.recicla.ga.ReCicla_WS.services.I;
+import com.recicla.ga.ReCicla_WS.services.IRewardService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,9 @@ public class RewardController {
     public void Registrar(@RequestBody Reward r) {
         rewardService.Insert(r);
     }
+
+    @GetMapping
+    public List<Reward> Listar() { return rewardService.list();}
 
     @PutMapping
     public void Modificar(@RequestBody Reward r) {
