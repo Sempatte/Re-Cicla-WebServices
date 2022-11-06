@@ -9,7 +9,9 @@ public interface IUsuarioService {
     public void delete(int idUsuario);
     Optional<Usuario> listarId(int idUsuario);
 
-    List<Usuario> list();
+    List<Usuario> ListarTodosLosUsuarios();
+    List<Usuario> ListarRecolectores();
+    List<Usuario> ListarRecicladores();
 
     List<Usuario> buscarDireccion(String direccion);
     List<Usuario> buscarHistorial(String busquedas);

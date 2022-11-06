@@ -34,8 +34,18 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public List<Usuario> list() {
+    public List<Usuario> ListarTodosLosUsuarios() {
         return userService.findAll();
+    }
+
+    @Override
+    public List<Usuario> ListarRecolectores() {
+        return userService.ListarRecolectores();
+    }
+
+    @Override
+    public List<Usuario> ListarRecicladores() {
+        return userService.ListarRecicladores();
     }
 
     @Override

@@ -16,20 +16,30 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService userService;
 
-    @PostMapping
+    @PostMapping("/Registrar")
     public void Registrar(@RequestBody Usuario p) {
         userService.Insert(p);
     }
-    @GetMapping
+    @GetMapping("/ListarUsuarios")
     public List<Usuario> Listar() {
-        return userService.list();
+        return userService.ListarTodosLosUsuarios();
     }
-    @PutMapping
+
+    @GetMapping("/ListarRecolectores")
+    public List<Usuario> ListarRecolectores() {
+        return userService.ListarRecolectores();
+    }
+
+    @GetMapping("/ListarRecicladores")
+    public List<Usuario> ListarRecicladores() {
+        return userService.ListarRecicladores();
+    }
+    @PutMapping("/Modificar")
     public void Modificar(@RequestBody Usuario p) {
         userService.Insert(p);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void Eliminar(@PathVariable("id") Integer id) {
         userService.delete(id);
     }
@@ -43,7 +53,6 @@ public class UsuarioController {
         }
 
         return listaUsuarios;
-
     }
 
     @GetMapping("/{id}")

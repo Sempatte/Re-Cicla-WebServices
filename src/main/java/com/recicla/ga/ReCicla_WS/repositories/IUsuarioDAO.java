@@ -18,4 +18,10 @@ public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
 
     @Query("from Usuario u where u.historial.busquedas like %:busquedas%")
     List <Usuario> buscarHistorial(@Param("busquedas") String busquedas);
+
+    @Query("from Usuario r where r.esReciclador = false")
+    List <Usuario> ListarRecolectores();
+
+    @Query("from Usuario r where r.esReciclador = true")
+    List <Usuario> ListarRecicladores();
 }
