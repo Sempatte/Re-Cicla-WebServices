@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/ubications")
@@ -41,5 +42,10 @@ public class UbicationController {
         listaUbication = ubicationService.findUbication(ub.getDireccion());
         return listaUbication;
 
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Ubication> findUbicationByID(@PathVariable("id") Integer id) {
+        return ubicationService.findUbicationByID(id);
     }
 }

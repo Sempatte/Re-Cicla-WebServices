@@ -15,5 +15,4 @@ public class ReCiclaWsApplication {
 		String url = "http://localhost:8080/swagger-ui.html";
 		rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
 	}
-
 }

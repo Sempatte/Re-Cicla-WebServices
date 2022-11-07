@@ -1,12 +1,14 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
 import com.recicla.ga.ReCicla_WS.entities.Types;
+import com.recicla.ga.ReCicla_WS.entities.Usuario;
 import com.recicla.ga.ReCicla_WS.services.ITypesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/types")
@@ -40,6 +42,9 @@ public class TypesController {
         return listaTypes;
 
     }
-
+    @GetMapping("/{id}")
+    public Optional<Types> listarId(@PathVariable("id") Integer id) {
+        return typesService.findTypesByID(id);
+    }
 
 }
