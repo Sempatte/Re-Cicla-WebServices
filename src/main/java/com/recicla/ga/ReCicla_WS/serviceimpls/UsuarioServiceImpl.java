@@ -34,18 +34,28 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public List<Usuario> list() {
+    public List<Usuario> ListarTodosLosUsuarios() {
         return userService.findAll();
     }
 
     @Override
-    public List<Usuario> buscarDireccion(String direccion) {
-        return null;
+    public List<Usuario> ListarRecolectores() {
+        return userService.ListarRecolectores();
     }
 
     @Override
-    public List<Usuario> buscarHistorial(String idHistorial) {
-        return null;
+    public List<Usuario> ListarRecicladores() {
+        return userService.ListarRecicladores();
+    }
+
+    @Override
+    public List<Usuario> buscarDireccion(String direccion) {
+        return userService.buscarUbicacion(direccion);
+    }
+
+    @Override
+    public List<Usuario> buscarHistorial(String busquedas) {
+        return userService.buscarHistorial(busquedas);
     }
 
 

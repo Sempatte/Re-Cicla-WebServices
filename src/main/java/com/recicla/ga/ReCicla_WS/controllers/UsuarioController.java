@@ -16,26 +16,36 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService userService;
 
-    @PostMapping
+    @PostMapping("/Registrar")
     public void Registrar(@RequestBody Usuario p) {
         userService.Insert(p);
     }
-    @GetMapping
+    @GetMapping("/ListarUsuarios")
     public List<Usuario> Listar() {
-        return userService.list();
+        return userService.ListarTodosLosUsuarios();
     }
-    @PutMapping
+
+    @GetMapping("/ListarRecolectores")
+    public List<Usuario> ListarRecolectores() {
+        return userService.ListarRecolectores();
+    }
+
+    @GetMapping("/ListarRecicladores")
+    public List<Usuario> ListarRecicladores() {
+        return userService.ListarRecicladores();
+    }
+    @PutMapping("/Modificar")
     public void Modificar(@RequestBody Usuario p) {
         userService.Insert(p);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void Eliminar(@PathVariable("id") Integer id) {
         userService.delete(id);
     }
 
     @PostMapping("/buscar")
-    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException {
+    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException { // Busca por Nombres o Direccion
         List<Usuario> listaUsuarios;
         listaUsuarios = userService.buscarUsuario(pr.getNombre());
         if (listaUsuarios.isEmpty()) {
@@ -43,12 +53,11 @@ public class UsuarioController {
         }
 
         return listaUsuarios;
-
     }
 
     @GetMapping("/{id}")
     public Optional<Usuario> listarId(@PathVariable("id") Integer id) {
-        return userService.listarId(id);
+        return userService.findUserByID(id);
     }
 
 
