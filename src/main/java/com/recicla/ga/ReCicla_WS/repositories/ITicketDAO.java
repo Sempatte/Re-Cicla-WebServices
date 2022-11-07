@@ -14,4 +14,7 @@ public interface ITicketDAO extends JpaRepository<Ticket, Integer>{
 
     @Query("from Ticket t where t.tipoTicket.Categoria like %:categoriaTicket%")
     List<Ticket> buscarCategoria(@Param("categoriaTicket") String categoriaTicket);
+
+    @Query("from Ticket t where t.Estado like %:Estado%")
+    List<Ticket> buscarEstadoTicket(@Param("Estado") String Estado);
 }
