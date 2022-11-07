@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/TipoTickets")
@@ -22,4 +23,10 @@ public class TipoTicketController {
     public void modificar(@RequestBody TipoTicket tt){ttService.Insert((tt));}
     @PostMapping("/buscar")
     public List<TipoTicket>buscar(@RequestBody TipoTicket tt){return ttService.search(tt.getCategoria());}
+
+    @GetMapping("/{id}")
+    public Optional<TipoTicket> listarId(@PathVariable("id") Integer id) {
+        return ttService.findById(id);
+    }
+
 }

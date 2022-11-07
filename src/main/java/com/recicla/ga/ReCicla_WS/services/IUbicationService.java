@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IUbicationService {
-    public void Insert(Ubication ubication);
+    public boolean Insert(Ubication ubication);
     List<Ubication> list();
 
     public void delete(int idUbication);

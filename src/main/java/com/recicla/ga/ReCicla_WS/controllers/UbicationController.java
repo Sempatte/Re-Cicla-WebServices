@@ -4,6 +4,7 @@ package com.recicla.ga.ReCicla_WS.controllers;
 import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import com.recicla.ga.ReCicla_WS.services.IUbicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -25,7 +26,7 @@ public class UbicationController {
     public List<Ubication> Listar() {
         return ubicationService.list();
     }
-    @PutMapping
+    @PutMapping()
     public void Modificar(@RequestBody Ubication u) {
         ubicationService.Insert(u);
     }

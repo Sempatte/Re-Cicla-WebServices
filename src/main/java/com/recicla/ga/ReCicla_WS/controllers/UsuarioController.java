@@ -20,7 +20,7 @@ public class UsuarioController {
     public void Registrar(@RequestBody Usuario p) {
         userService.Insert(p);
     }
-    @GetMapping("/ListarUsuarios")
+    @GetMapping
     public List<Usuario> Listar() {
         return userService.ListarTodosLosUsuarios();
     }
@@ -48,7 +48,7 @@ public class UsuarioController {
     public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException { // Busca por Nombres o Direccion
         List<Usuario> listaUsuarios;
         listaUsuarios = userService.buscarUsuario(pr.getNombre());
-        if (listaUsuarios.isEmpty()) {
+        if (listaUsuarios == null) {
             listaUsuarios = userService.buscarDireccion(pr.getUbication().getDireccion());
         }
 

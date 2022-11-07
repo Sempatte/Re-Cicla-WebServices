@@ -1,22 +1,28 @@
 package com.recicla.ga.ReCicla_WS.serviceimpls;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import com.recicla.ga.ReCicla_WS.repositories.IUbicationDAO;
 import com.recicla.ga.ReCicla_WS.services.IUbicationService;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@RestController
 public class UbicationServiceImpl  implements IUbicationService{
     @Autowired
     private IUbicationDAO uR;
     @Override
     @Transactional
-    public void Insert(Ubication ubication) {}
+    public boolean Insert(Ubication ubication) {
+        Ubication objUbicaciones = uR.save(ubication);
+        if (objUbicaciones == null) {
+            return false;
+        }
+        return true;
+    }
     @Override
     public List<Ubication> list() {return uR.findAll();}
 

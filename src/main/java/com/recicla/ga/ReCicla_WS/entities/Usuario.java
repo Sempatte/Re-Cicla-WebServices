@@ -27,11 +27,11 @@ public class Usuario {
     private Boolean esReciclador;
 
     @ManyToOne
-    @JoinColumn(name = "Ubication_id", nullable = false)
+    @JoinColumn(name = "Ubication_id", nullable = true)
     private Ubication ubication;
 
     @ManyToOne
-    @JoinColumn(name = "Historial_id", nullable = false)
+    @JoinColumn(name = "Historial_id", nullable = true)
     private Historial historial;
 
     public Usuario(){
