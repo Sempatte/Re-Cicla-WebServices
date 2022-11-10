@@ -21,7 +21,7 @@ public class TicketController {
     public List<Ticket> Listar(){return ticketService.list();}
     @PutMapping
     public void Modificar(@RequestBody Ticket t){ticketService.Insert(t);}
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void Eliminar(@PathVariable("id") Integer id){ticketService.delete(id);}
 
     public List<Ticket> buscar(@RequestBody Ticket t) throws ParseException{
