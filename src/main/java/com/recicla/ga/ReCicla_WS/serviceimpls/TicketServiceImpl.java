@@ -45,12 +45,12 @@ public class TicketServiceImpl implements ITicketService {
 
     @Override
     public List<Ticket> buscarTicket(String Estado) {
-        return null;
+        return ticketService.buscarEstadoTicket(Estado);
     }
 
     @Override
     public List<Ticket> buscarCategoriaTicket(String Categoria) {
-        return null;
+        return ticketService.buscarCategoriaTicket(Categoria);
     }
 
     @Override

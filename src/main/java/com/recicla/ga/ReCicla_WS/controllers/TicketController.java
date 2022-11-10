@@ -24,6 +24,7 @@ public class TicketController {
     @DeleteMapping("/{id}")
     public void Eliminar(@PathVariable("id") Integer id){ticketService.delete(id);}
 
+    @PostMapping("/buscar")
     public List<Ticket> buscar(@RequestBody Ticket t) throws ParseException{
         List<Ticket> listaTickets;
         listaTickets=ticketService.buscarTicket(t.getEstado());
@@ -33,5 +34,5 @@ public class TicketController {
         return listaTickets;
     }
     @GetMapping("/{id}")
-    public Optional<Ticket> listarID(@PathVariable("id") Integer id){return ticketService.listarId(id);}
+    public Optional<Ticket> listarID(@PathVariable("id") Integer id){return ticketService.findTicketByID(id);}
 }

@@ -9,11 +9,11 @@ import com.recicla.ga.ReCicla_WS.entities.Ticket;
 import java.util.List;
 @Repository
 public interface ITicketDAO extends JpaRepository<Ticket, Integer>{
-    @Query("from Ticket t where t.usuario.nombre like %:nombreUsuario%")
-    List<Ticket> buscarUsuario(@Param("nombreUsuario") String nombreUsuario);
+    @Query("from Ticket t where t.usuario.nombre like %:nombre%")
+    List<Ticket> buscarUsuarioTicket(@Param("nombre") String nombre);
 
-    @Query("from Ticket t where t.tipoTicket.Categoria like %:categoriaTicket%")
-    List<Ticket> buscarCategoria(@Param("categoriaTicket") String categoriaTicket);
+    @Query("from Ticket t where t.tipoTicket.Categoria like %:Categoria%")
+    List<Ticket> buscarCategoriaTicket(@Param("Categoria") String Categoria);
 
     @Query("from Ticket t where t.Estado like %:Estado%")
     List<Ticket> buscarEstadoTicket(@Param("Estado") String Estado);
