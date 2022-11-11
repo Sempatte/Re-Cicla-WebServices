@@ -36,7 +36,7 @@ public class ScoreServiceImpl  implements IScoreService {
 
     @Override
     public Optional<Score> listarId(int idScore) {
-        return Optional.empty();
+        return Optional.of(scoreService.findById(idScore).orElse(new Score()));
     }
 
     @Override
