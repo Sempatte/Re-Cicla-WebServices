@@ -19,6 +19,7 @@ public class ScoreServiceImpl  implements IScoreService {
     private IScoreDAO scoreService;
 
     @Override
+    @Transactional
     public boolean insertar(Score score) {
         Score objScore = scoreService.save(score);
         if (objScore == null) {
@@ -45,7 +46,7 @@ public class ScoreServiceImpl  implements IScoreService {
 
     @Override
     public List<Score> buscarUsuario(String nombreUsuario) {
-        return null;
+        return scoreService.buscarUsuario(nombreUsuario);
     }
 
     @Override
