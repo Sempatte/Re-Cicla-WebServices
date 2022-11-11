@@ -37,7 +37,7 @@ public class ScoreController {
     public List<Score> buscar(@RequestBody Score s) throws ParseException {
         List<Score> listaScore;
         listaScore = scoreService.buscarnEstrellas(s.getnEstrellas());
-        if (listaScore.isEmpty()) {
+        if (listaScore.isEmpty() ) {
             listaScore = scoreService.buscarUsuario(s.getUsuario().getNombre());
         }
 

@@ -28,7 +28,7 @@ public class TicketController {
     public List<Ticket> buscar(@RequestBody Ticket t) throws ParseException{
         List<Ticket> listaTickets;
         listaTickets=ticketService.buscarTicket(t.getEstado());
-        if (listaTickets.isEmpty()){
+        if (listaTickets == null || listaTickets.isEmpty()){
             listaTickets=ticketService.buscarCategoriaTicket(t.getTipoTicket().getCategoria());
         }
         return listaTickets;

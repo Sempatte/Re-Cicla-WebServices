@@ -24,6 +24,7 @@ public class Ticket implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private LocalDate Fecha;
 
+
     @ManyToOne
     @JoinColumn(name = "User_id", nullable = false)
     private Usuario usuario;
