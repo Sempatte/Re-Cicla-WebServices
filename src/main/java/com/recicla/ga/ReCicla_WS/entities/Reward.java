@@ -1,4 +1,5 @@
 package com.recicla.ga.ReCicla_WS.entities;
+
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
@@ -34,6 +35,10 @@ public class Reward {
     @JoinColumn(name = "Types_id", nullable = false)
     private Types types;
 
+    public Reward(){
+        super();
+    }
+
     public Reward(int id, String nameReward, LocalDate startDate, LocalDate endDate, String code, String description, Types types) {
         this.id = id;
         NameReward = nameReward;
@@ -42,10 +47,6 @@ public class Reward {
         Code = code;
         Description = description;
         this.types = types;
-    }
-
-    public Reward(){
-        super();
     }
 
     public int getId() {

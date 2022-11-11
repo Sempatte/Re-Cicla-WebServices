@@ -38,17 +38,17 @@ public class RewardController {
 
     @PostMapping("/buscar")
     public List<Reward> buscar(@RequestBody Reward pr) throws ParseException {
-        List<Reward> listaUsuarios;
-        listaUsuarios = rewardService.buscarRewardName(pr.getNameReward());
-        if (listaUsuarios.isEmpty()) {
-            listaUsuarios = rewardService.buscarType(pr.getTypes().getName());
+        List<Reward> listaRewards;
+        listaRewards = rewardService.buscarRewardName(pr.getNameReward());
+        if (listaRewards.isEmpty()) {
+            listaRewards = rewardService.buscarType(pr.getTypes().getName());
         }
-        return listaUsuarios;
+        return listaRewards;
     }
 
     @GetMapping("/{id}")
-    public Optional<Reward> listarId(@PathVariable("id") Integer id) {
-        return rewardService.listarId(id);
+    public Optional<Reward> findRewardByID(@PathVariable("id") Integer id) {
+        return rewardService.findRewardByID(id);
     }
 
 

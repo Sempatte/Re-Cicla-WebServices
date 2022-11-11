@@ -11,10 +11,8 @@ public interface IRewardService {
 
     List<Reward> list();
     Optional<Reward> listarId(int idReward);
-
     List<Reward> buscarType(String idType);
     List<Reward> buscarRewardName(String Name);
-
-    public Optional<Reward> findUserByID(int idReward);
+    public Optional<Reward> findRewardByID(int idReward);
 
 }

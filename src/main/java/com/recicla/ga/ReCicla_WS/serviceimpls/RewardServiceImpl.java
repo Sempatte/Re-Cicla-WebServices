@@ -48,12 +48,12 @@ public class RewardServiceImpl implements IRewardService {
     }
 
     @Override
-    public List<Reward> buscarRewardName(String Name) {
-        return rewardService.findAll();
+    public List<Reward> buscarRewardName(String nameReward) {
+        return rewardService.buscarRewardName(nameReward);
     }
 
     @Override
-    public Optional<Reward> findUserByID(int idReward) {
+    public Optional<Reward> findRewardByID(int idReward) {
         return Optional.of(rewardService.findById(idReward).orElse(new Reward()));
     }
 

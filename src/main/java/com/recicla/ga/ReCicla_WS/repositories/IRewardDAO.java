@@ -11,5 +11,7 @@ import java.util.List;
 @Repository
 public interface IRewardDAO  extends JpaRepository<Reward, Integer>{
     @Query("from Reward r where r.types.Name like %:NameType%")
-    List<Reward> buscarTipo(@Param("NameType") String NameType);
+    List<Reward> buscarType(@Param("NameType") String NameType);
+    @Query("from Reward r where r.NameReward like %:NameReward%")
+    List<Reward> buscarRewardName(@Param("NameReward") String NameReward);
 }
