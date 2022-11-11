@@ -39,7 +39,7 @@ public class RewardServiceImpl implements IRewardService {
 
     @Override
     public Optional<Reward> listarId(int idReward) {
-        return Optional.empty();
+        return Optional.of(rewardService.findById(idReward).orElse(new Reward()));
     }
 
     @Override
