@@ -11,5 +11,6 @@ public interface ISolicitudService {
     List<Solicitud> list();
     Optional<Solicitud> listarId(int idSolicitud);
     List<Solicitud> buscarUsuarioSolicitud(String nombreUsuario);
+    List<Solicitud> buscarDistritoSolicitud(String distrito);
     public Optional<Solicitud> findSolicitudByID(int idSolicitud);
 }

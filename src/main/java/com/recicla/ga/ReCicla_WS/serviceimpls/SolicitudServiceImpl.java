@@ -43,7 +43,12 @@ public class SolicitudServiceImpl implements ISolicitudService {
 
     @Override
     public List<Solicitud> buscarUsuarioSolicitud(String nombreUsuario) {
-        return null;
+        return solicitudService.buscarUsuarioSolicitud(nombreUsuario);
+    }
+
+    @Override
+    public List<Solicitud> buscarDistritoSolicitud(String distrito) {
+        return solicitudService.buscarDistritoSolicitud(distrito);
     }
 
     @Override

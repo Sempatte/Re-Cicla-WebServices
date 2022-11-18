@@ -18,7 +18,7 @@ public class Solicitud implements Serializable {
     @JsonSerialize(using= ToStringSerializer.class)
     private LocalDate Fecha;
 
-    @Column(name = "Descripcion")
+    @Column(name = "Descripcion",length = 60,nullable = false)
     private String Descripcion;
 
     @ManyToOne
