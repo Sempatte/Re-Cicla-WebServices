@@ -2,24 +2,30 @@ package com.recicla.ga.ReCicla_WS.serviceimpls;
 
 import java.util.ArrayList;
 
+import com.recicla.ga.ReCicla_WS.entities.AdminUser;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
+import com.recicla.ga.ReCicla_WS.repositories.IAdminUserDAO;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
+    private final IAdminUserDAO adminUserDAO;
+
+    public JwtUserDetailsService(IAdminUserDAO adminUserDAO) {
+        this.adminUserDAO = adminUserDAO;
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //Aqui lógica para buscar el usuario en BD
-        //Usuario defecto web:password
-
-        if ("web".equals(username)) {
-            return new User("web", "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6",
-                    new ArrayList<>());
-        } else {
-            throw new UsernameNotFoundException("Usuario no encontrado: " + username);
+        //Usuario defecto sebas:sebas
+        AdminUser adminAccount = adminUserDAO.findByUsername(username);
+        if (adminAccount == null) {
+            throw new UsernameNotFoundException("User not found with username: " + username );
         }
+        return new AdminUserServiceImpl(adminAccount);
+
+
     }
 }
