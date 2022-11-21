@@ -30,8 +30,8 @@ public class ScoreServiceImpl  implements IScoreService {
 
     @Override
     @Transactional
-    public void eliminar(int idScore) { scoreService.deleteById((idScore));
-
+    public void eliminar(int idScore) {
+        scoreService.deleteById((idScore));
     }
 
     @Override
@@ -42,6 +42,12 @@ public class ScoreServiceImpl  implements IScoreService {
     @Override
     public List<Score> listar() {
         return scoreService.findAll();
+    }
+
+    @Override
+    @Transactional
+    public void deleteScoreByUsuario(int idUsuario) {
+        scoreService.deleteScoreByUsuario(idUsuario);
     }
 
     @Override
