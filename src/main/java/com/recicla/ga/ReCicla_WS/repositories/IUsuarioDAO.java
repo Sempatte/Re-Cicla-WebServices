@@ -10,11 +10,15 @@ import java.util.List;
 
 @Repository
 public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
-    @Query("from Usuario p where p.nombre like %:UserNames%")
-    List<Usuario> BuscarPorNombres(@Param("UserNames") String namePropietario);
+    //@Query("from Usuario p where p.nombre like %:UserNames%")
+    //List<Usuario> BuscarPorNombres(@Param("UserNames") String namePropietario);
+
+    List<Usuario> findByNombreContains(String namePropietario);
 
     @Query("from Usuario u where u.ubication.Direccion like %:direccion%")
     List<Usuario> buscarUbicacion(@Param("direccion") String direccion);
+
+
 
     @Query("from Usuario u where u.historial.busquedas like %:busquedas%")
     List <Usuario> buscarHistorial(@Param("busquedas") String busquedas);
@@ -22,6 +26,9 @@ public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
     @Query("from Usuario r where r.esReciclador = false")
     List <Usuario> ListarRecolectores();
 
-    @Query("from Usuario r where r.esReciclador = true")
-    List <Usuario> ListarRecicladores();
+    List <Usuario> findByEsRecicladorIsTrue(); // Listar Recolectores
+    List <Usuario> findByEsRecicladorIsFalse(); // Listar Recicladores
+
+    //@Query("from Usuario r where r.esReciclador = true")
+    //List <Usuario> ListarRecicladores();
 }

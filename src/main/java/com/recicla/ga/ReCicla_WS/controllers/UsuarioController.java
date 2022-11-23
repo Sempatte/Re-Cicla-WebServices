@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/usuarios")
+    @RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
     private IUsuarioService userService;
@@ -56,15 +56,14 @@ public class UsuarioController {
         userService.delete(id);
     }
 
-    @PostMapping("/buscar")
-    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException { // Busca por Nombres o Direccion
-        List<Usuario> listaUsuarios;
-        listaUsuarios = userService.buscarUsuario(pr.getNombre());
-        if (listaUsuarios == null) {
-            listaUsuarios = userService.buscarDireccion(pr.getUbication().getDireccion());
-        }
+    @PostMapping("/BuscarPorNombres")
+    public List<Usuario> BuscarPorNombres(@RequestBody String NombreDelUsuario){ // Busca por Nombres
+        return userService.buscarUsuarioPorNombres(NombreDelUsuario);
+    }
 
-        return listaUsuarios;
+    @PostMapping("/BuscarPorDireccion")
+    public List<Usuario> BuscarPorDireccion(@RequestBody String DireccionDelUsuario){ // Busca por Direccion
+        return userService.buscarDireccion(DireccionDelUsuario);
     }
 
     @GetMapping("/{id}")

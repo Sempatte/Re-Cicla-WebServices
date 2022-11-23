@@ -40,23 +40,14 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public List<Usuario> ListarRecolectores() {
-        return userService.ListarRecolectores();
+        return userService.findByEsRecicladorIsFalse();
     }
 
     @Override
     public List<Usuario> ListarRecicladores() {
-        return userService.ListarRecicladores();
+        return userService.findByEsRecicladorIsTrue();
     }
 
-    @Override
-    public List<Usuario> buscarDireccion(String direccion) {
-        return userService.buscarUbicacion(direccion);
-    }
-
-    @Override
-    public List<Usuario> buscarHistorial(String busquedas) {
-        return userService.buscarHistorial(busquedas);
-    }
 
 
 
@@ -71,7 +62,17 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public List<Usuario> buscarUsuario(String UserNames) {
-        return userService.BuscarPorNombres(UserNames);
+    public List<Usuario> buscarUsuarioPorNombres(String UserNames) {
+        return userService.findByNombreContains(UserNames);
+    }
+
+    @Override
+    public List<Usuario> buscarDireccion(String direccion) {
+        return userService.buscarUbicacion(direccion);
+    }
+
+    @Override
+    public List<Usuario> buscarHistorial(String busquedas) {
+        return userService.buscarHistorial(busquedas);
     }
 }
