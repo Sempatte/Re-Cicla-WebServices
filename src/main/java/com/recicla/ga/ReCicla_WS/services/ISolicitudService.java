@@ -1,5 +1,6 @@
 package com.recicla.ga.ReCicla_WS.services;
 
+import com.recicla.ga.ReCicla_WS.entities.RespuestaSolicitud;
 import com.recicla.ga.ReCicla_WS.entities.Solicitud;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface ISolicitudService {
     List<Solicitud> buscarUsuarioSolicitud(String nombreUsuario);
     List<Solicitud> buscarDistritoSolicitud(String distrito);
     public Optional<Solicitud> findSolicitudByID(int idSolicitud);
+    List<RespuestaSolicitud> cantidadSolisxDistrito();
 }
