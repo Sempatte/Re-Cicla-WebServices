@@ -11,6 +11,8 @@ public interface IScoreService {
     Optional<Score> listarId(int idScore);
     List<Score> listar();
 
+    public void deleteScoreByUsuario(int idUsuario);
+
     List<Score> buscarUsuario(String nombreUsuario);
     List<Score> buscarnEstrellas(Integer nEstrellas);
 

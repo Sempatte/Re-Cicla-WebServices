@@ -1,5 +1,7 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
+import com.recicla.ga.ReCicla_WS.entities.Score;
+import com.recicla.ga.ReCicla_WS.services.IScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
@@ -11,14 +13,19 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/usuarios")
+    @RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
     private IUsuarioService userService;
+    @Autowired
+    private IScoreService scoreService;
 
     @PostMapping("/Registrar")
     public void Registrar(@RequestBody Usuario p) {
         userService.Insert(p);
+        Score score = new Score();
+        score.setUsuario(p);
+        scoreService.insertar(score);
     }
     @GetMapping
     public List<Usuario> Listar() {
@@ -41,18 +48,22 @@ public class UsuarioController {
 
     @DeleteMapping("{id}")
     public void Eliminar(@PathVariable("id") Integer id) {
+        try {
+            scoreService.deleteScoreByUsuario(id);
+        } catch (Exception e) { // El usuario no tiene score
+            System.out.println(e.getMessage());
+        }
         userService.delete(id);
     }
 
-    @PostMapping("/buscar")
-    public List<Usuario> buscar(@RequestBody Usuario pr) throws ParseException { // Busca por Nombres o Direccion
-        List<Usuario> listaUsuarios;
-        listaUsuarios = userService.buscarUsuario(pr.getNombre());
-        if (listaUsuarios == null) {
-            listaUsuarios = userService.buscarDireccion(pr.getUbication().getDireccion());
-        }
+    @PostMapping("/BuscarPorNombres")
+    public List<Usuario> BuscarPorNombres(@RequestBody String NombreDelUsuario){ // Busca por Nombres
+        return userService.buscarUsuarioPorNombres(NombreDelUsuario);
+    }
 
-        return listaUsuarios;
+    @PostMapping("/BuscarPorDireccion")
+    public List<Usuario> BuscarPorDireccion(@RequestBody String DireccionDelUsuario){ // Busca por Direccion
+        return userService.buscarDireccion(DireccionDelUsuario);
     }
 
     @GetMapping("/{id}")

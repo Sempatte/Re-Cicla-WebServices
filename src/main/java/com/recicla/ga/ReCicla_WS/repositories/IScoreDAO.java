@@ -1,6 +1,7 @@
 package com.recicla.ga.ReCicla_WS.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -17,5 +18,9 @@ public interface IScoreDAO extends JpaRepository<Score, Integer> {
 
     @Query("from Score s  where s.nEstrellas =  :nEstrellas ")
     List<Score> buscarnEstrellas(@Param("nEstrellas") Integer nEstrellas);
+
+    @Modifying
+    @Query("delete from Score s where s.usuario.id = :idUsuario")
+    void deleteScoreByUsuario(@Param("idUsuario") Integer idUsuario);
 
 }
