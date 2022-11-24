@@ -17,7 +17,7 @@ public interface IScoreDAO extends JpaRepository<Score, Integer> {
     List<Score> buscarUsuario(@Param("nombreUsuario") String nombreUsuario);
 
     @Query("from Score s  where s.nEstrellas =  :nEstrellas ")
-    List<Score> buscarnEstrellas(@Param("nEstrellas") Integer nEstrellas);
+    List<Score> buscarnEstrellas(@Param("nEstrellas") float nEstrellas);
 
     @Modifying
     @Query("delete from Score s where s.usuario.id = :idUsuario")

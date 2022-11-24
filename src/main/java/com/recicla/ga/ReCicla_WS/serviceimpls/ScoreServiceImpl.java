@@ -56,7 +56,7 @@ public class ScoreServiceImpl  implements IScoreService {
     }
 
     @Override
-    public List<Score> buscarnEstrellas(Integer nEstrellas) {
+    public List<Score> buscarnEstrellas(float nEstrellas) {
         return scoreService.buscarnEstrellas(nEstrellas);
     }
 

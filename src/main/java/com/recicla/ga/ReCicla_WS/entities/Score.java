@@ -19,7 +19,7 @@ public class Score {
     private int pedidosCancelados;
 
     @Column(name="nEstrellas", length = 20, nullable = false)
-    private int nEstrellas;
+    private float nEstrellas;
 
     @ManyToOne
     @JoinColumn(name = "User_id", nullable = false)
@@ -28,7 +28,7 @@ public class Score {
     public Score() {super();}
 
 
-    public Score(int id, int pedidosRealizados, int pedidosEntregados, int pedidosCancelados, int nEstrellas, Usuario usuario) {
+    public Score(int id, int pedidosRealizados, int pedidosEntregados, int pedidosCancelados, float nEstrellas, Usuario usuario) {
         this.id = id;
         this.pedidosRealizados = pedidosRealizados;
         this.pedidosEntregados = pedidosEntregados;
@@ -69,11 +69,11 @@ public class Score {
         this.pedidosCancelados = pedidosCancelados;
     }
 
-    public int getnEstrellas() {
+    public float getnEstrellas() {
         return nEstrellas;
     }
 
-    public void setnEstrellas(int nEstrellas) {
+    public void setnEstrellas(float nEstrellas) {
         this.nEstrellas = nEstrellas;
     }
 
