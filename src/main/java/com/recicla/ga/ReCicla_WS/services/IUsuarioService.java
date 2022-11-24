@@ -1,5 +1,6 @@
 package com.recicla.ga.ReCicla_WS.services;
 
+import com.recicla.ga.ReCicla_WS.entities.Score;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ public interface IUsuarioService {
     List<Usuario> buscarHistorial(String busquedas);
     List<Usuario> buscarUsuarioPorNombres(String UserNames);
 
+    List<Score> obtenerScoreMayorA3_5();
 
     public Optional<Usuario> findUserByID(int idUsuario);
 

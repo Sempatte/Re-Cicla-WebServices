@@ -54,6 +54,11 @@ public class TicketServiceImpl implements ITicketService {
     }
 
     @Override
+    public List<Ticket> obtenerTicketsImportanciaAlta() {
+        return ticketService.obtenerTicketsImportanciaAlta();
+    }
+
+    @Override
     public Optional<Ticket> findTicketByID(int idTicket) {
         return Optional.of(ticketService.findById(idTicket).orElse(new Ticket()));
     }

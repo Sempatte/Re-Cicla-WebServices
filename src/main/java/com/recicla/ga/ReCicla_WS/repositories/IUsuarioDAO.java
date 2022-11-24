@@ -1,5 +1,6 @@
 package com.recicla.ga.ReCicla_WS.repositories;
 
+import com.recicla.ga.ReCicla_WS.entities.Score;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,14 +11,12 @@ import java.util.List;
 
 @Repository
 public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
-    //@Query("from Usuario p where p.nombre like %:UserNames%")
-    //List<Usuario> BuscarPorNombres(@Param("UserNames") String namePropietario);
+
 
     List<Usuario> findByNombreContains(String namePropietario);
 
     @Query("from Usuario u where u.ubication.Direccion like %:direccion%")
     List<Usuario> buscarUbicacion(@Param("direccion") String direccion);
-
 
 
     @Query("from Usuario u where u.historial.busquedas like %:busquedas%")
@@ -29,6 +28,8 @@ public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
     List <Usuario> findByEsRecicladorIsTrue(); // Listar Recolectores
     List <Usuario> findByEsRecicladorIsFalse(); // Listar Recicladores
 
-    //@Query("from Usuario r where r.esReciclador = true")
-    //List <Usuario> ListarRecicladores();
+    // Obtener todos los usuarios que tengan un score mayor a 3.5, y ordenarlo de mayor a menor - QUERY SEBASTIAN
+    @Query("from Score r where r.nEstrellas > 3.5 order by r.nEstrellas asc" )
+    List<Score> obtenerScoreMayorA3_5();
+
 }

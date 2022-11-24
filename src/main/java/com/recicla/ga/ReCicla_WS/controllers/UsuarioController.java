@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @RestController
-    @RequestMapping("/usuarios")
+@RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
     private IUsuarioService userService;
@@ -71,5 +71,9 @@ public class UsuarioController {
         return userService.findUserByID(id);
     }
 
+    @GetMapping("/UsuariosDestacados")
+    public List<Score> ListarScoresMayoresA3_5() {
+        return userService.obtenerScoreMayorA3_5();
+    }
 
 }

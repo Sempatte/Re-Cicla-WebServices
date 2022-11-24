@@ -17,4 +17,8 @@ public interface ITicketDAO extends JpaRepository<Ticket, Integer>{
 
     @Query("from Ticket t where t.Estado like %:Estado%")
     List<Ticket> buscarEstadoTicket(@Param("Estado") String Estado);
+
+    // 2. Listar todos los tickets que tengan una importancia Alta - QUERY SEBASTIAN
+    @Query(value="select distinct t.* from ticket t INNER JOIN tipo_ticket tt On t.tipo_ticket_id = tt.id WHERE tt.importancia = 'Alta'", nativeQuery = true)
+    List<Ticket> obtenerTicketsImportanciaAlta();
 }

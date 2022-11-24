@@ -1,5 +1,6 @@
 package com.recicla.ga.ReCicla_WS.serviceimpls;
 
+import com.recicla.ga.ReCicla_WS.entities.Score;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
@@ -64,6 +65,12 @@ public class UsuarioServiceImpl implements IUsuarioService {
     @Override
     public List<Usuario> buscarUsuarioPorNombres(String UserNames) {
         return userService.findByNombreContains(UserNames);
+    }
+
+    @Override
+    public List<Score> obtenerScoreMayorA3_5() {
+        System.out.println("=======>" + userService.obtenerScoreMayorA3_5());
+        return userService.obtenerScoreMayorA3_5();
     }
 
     @Override

@@ -23,4 +23,5 @@ public interface IScoreDAO extends JpaRepository<Score, Integer> {
     @Query("delete from Score s where s.usuario.id = :idUsuario")
     void deleteScoreByUsuario(@Param("idUsuario") Integer idUsuario);
 
+
 }

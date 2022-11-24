@@ -35,4 +35,9 @@ public class TicketController {
     }
     @GetMapping("/{id}")
     public Optional<Ticket> listarID(@PathVariable("id") Integer id){return ticketService.findTicketByID(id);}
+
+    @GetMapping("/TicketsImportanciaAlta")
+    public List<Ticket> obtenerTicketsImportanciaAlta() {
+        return ticketService.obtenerTicketsImportanciaAlta();
+    }
 }

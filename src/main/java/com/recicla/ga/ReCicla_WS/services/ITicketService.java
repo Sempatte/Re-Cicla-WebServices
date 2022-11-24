@@ -12,5 +12,7 @@ public interface ITicketService {
     Optional<Ticket> listarId(int idTicket);
     List<Ticket>buscarTicket(String Estado);
     List<Ticket>buscarCategoriaTicket(String Categoria);
+
+    List <Ticket> obtenerTicketsImportanciaAlta();
     public Optional<Ticket> findTicketByID(int idTicket);
 }
