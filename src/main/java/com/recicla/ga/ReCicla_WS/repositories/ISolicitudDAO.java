@@ -16,4 +16,6 @@ public interface ISolicitudDAO extends JpaRepository<Solicitud, Integer> {
 
     @Query("from Solicitud s where s.ubicacion.Distrito like %:Distrito")
     List<Solicitud>buscarDistritoSolicitud(@Param("Distrito") String Distrito);
+    @Query(value = "select u.Distrito,count(s.idSolicitud) from solicitud s join ubicacion u on s.id=u.id group by u.Distrito",nativeQuery = true)
+    List<String[]> cantsoldistrict();
 }
