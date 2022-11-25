@@ -21,7 +21,7 @@ public class Score {
     @Column(name="nEstrellas", length = 20, nullable = false)
     private float nEstrellas;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "User_id", nullable = false)
     private Usuario usuario;
 
