@@ -2,6 +2,7 @@ package com.recicla.ga.ReCicla_WS.controllers;
 
 import com.recicla.ga.ReCicla_WS.entities.RespuestaSolicitud;
 import com.recicla.ga.ReCicla_WS.entities.Solicitud;
+import com.recicla.ga.ReCicla_WS.entities.Ticket;
 import com.recicla.ga.ReCicla_WS.services.ISolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +39,9 @@ public class SolicitudController {
     @GetMapping("/cantidades")
     List<RespuestaSolicitud>findbyCantidadSolixDis(){
     return  solicitudService.cantidadSolisxDistrito();
+    }
+    @GetMapping("/solbotelleros")
+    public List<Solicitud> obtenerBotelleros() {
+        return solicitudService.mostrarbotelleros();
     }
 }

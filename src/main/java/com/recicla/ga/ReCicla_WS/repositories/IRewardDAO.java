@@ -13,6 +13,6 @@ public interface IRewardDAO  extends JpaRepository<Reward, Integer>{
     @Query("from Reward r where r.types.Name like %:NameType%")
     List<Reward> buscarTipo(@Param("NameType") String NameType);
 
-    @Query(value = "select * from Reward r join types t on t.id=r.id where t.Name='celular'",nativeQuery = true)
+    @Query(value = "select r.id,r.name_reward from Reward r join types t on r.types_id=t.id where t.name='Celular'",nativeQuery = true)
     List<Reward>buscarRewardsCelular();
 }

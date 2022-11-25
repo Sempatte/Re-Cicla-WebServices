@@ -70,4 +70,9 @@ public class SolicitudServiceImpl implements ISolicitudService {
         return lista;
 
     }
+
+    @Override
+    public List<Solicitud> mostrarbotelleros() {
+        return solicitudService.buscarBotelleros();
+    }
 }
