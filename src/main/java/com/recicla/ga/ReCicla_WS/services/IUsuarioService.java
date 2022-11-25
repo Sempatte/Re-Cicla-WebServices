@@ -1,6 +1,7 @@
 package com.recicla.ga.ReCicla_WS.services;
 
 import com.recicla.ga.ReCicla_WS.entities.Score;
+import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +23,7 @@ public interface IUsuarioService {
 
     public Optional<Usuario> findUserByID(int idUsuario);
 
-    List <Usuario> ListarQueryDistrito();
+    List <Ubication> ListarQueryDistrito();
     List <Usuario> ListarQuery2();
     List <Usuario> ListarQuery3();
 

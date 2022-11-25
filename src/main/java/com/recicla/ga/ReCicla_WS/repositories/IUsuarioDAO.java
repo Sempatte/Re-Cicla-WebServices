@@ -1,6 +1,7 @@
 package com.recicla.ga.ReCicla_WS.repositories;
 
 import com.recicla.ga.ReCicla_WS.entities.Score;
+import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -33,7 +34,7 @@ public interface IUsuarioDAO extends JpaRepository<Usuario, Integer>{
     List<Score> obtenerScoreMayorA3_5();
 
     @Query(value="SELECT * from Ubication ub join usuario us on ub.id=us.ubication_id where distrito like '%Surco%'", nativeQuery = true)
-    List <Usuario> ListarQueryDistrito();
+    List <Ubication> ListarQueryDistrito();
 
     @Query(value="SELECT * from usuario u join ticket ti on ti.user_id = u.id join tipo_ticket tt on ti.tipo_ticket_id = tt.id where importancia in ('Alta', 'Baja')", nativeQuery = true)
     List <Usuario> ListarQuery2();

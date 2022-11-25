@@ -1,6 +1,7 @@
 package com.recicla.ga.ReCicla_WS.serviceimpls;
 
 import com.recicla.ga.ReCicla_WS.entities.Score;
+import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.recicla.ga.ReCicla_WS.entities.Usuario;
@@ -84,7 +85,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public List<Usuario> ListarQueryDistrito() {
+    public List<Ubication> ListarQueryDistrito() {
         return userService.ListarQueryDistrito();
     }
 

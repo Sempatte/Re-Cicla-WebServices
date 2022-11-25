@@ -1,6 +1,7 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
 import com.recicla.ga.ReCicla_WS.entities.Score;
+import com.recicla.ga.ReCicla_WS.entities.Ubication;
 import com.recicla.ga.ReCicla_WS.services.IScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -76,8 +77,8 @@ public class UsuarioController {
         return userService.obtenerScoreMayorA3_5();
     }
 
-    @GetMapping("/ListarQueryDistrito") // QUERY Giancarlo
-    public List<Usuario> ListarQueryDistrito() {
+    @GetMapping("/ListarQueryDistrito") // QUERY Giancarlo LISTAR USUARIOS DE SURCO
+    public List<Ubication> ListarQueryDistrito() {
         return userService.ListarQueryDistrito();
     }
 
