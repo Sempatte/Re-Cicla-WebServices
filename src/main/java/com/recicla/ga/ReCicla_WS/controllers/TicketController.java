@@ -36,12 +36,12 @@ public class TicketController {
     @GetMapping("/{id}")
     public Optional<Ticket> listarID(@PathVariable("id") Integer id){return ticketService.findTicketByID(id);}
 
-    @GetMapping("/TicketsImportanciaAlta")
+    @GetMapping("/TicketsImportanciaAlta") // Query Sebas
     public List<Ticket> obtenerTicketsImportanciaAlta() {
         return ticketService.obtenerTicketsImportanciaAlta();
     }
 
-    @GetMapping("/ObtenerTicketFechaMayorADiciembre")
+    @GetMapping("/ObtenerTicketFechaMayorADiciembre") // Query BRIAN
     public List<Ticket> ObtenerTicketConFechaMayorADiciembre(){
         return ticketService.ObtenerTicketConFechaMayorADiciembre();
     }

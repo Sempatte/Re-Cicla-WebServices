@@ -76,4 +76,20 @@ public class UsuarioController {
         return userService.obtenerScoreMayorA3_5();
     }
 
+    @GetMapping("/ListarQueryDistrito") // QUERY Giancarlo
+    public List<Usuario> ListarQueryDistrito() {
+        return userService.ListarQueryDistrito();
+    }
+
+    @GetMapping("/SSSSSeleccionarPorImportancia") // QUERY Giancarlo
+    public List<Usuario> ListarQuery2() {
+        System.out.println("ListarQuery2");
+        return userService.ListarQuery2();
+    }
+
+    @GetMapping("/DescripcionRecompensasDeUsuario")  // QUERY Brian
+    public List<Usuario> ListarQuery3() {
+        return userService.ListarQuery3();
+    }
+
 }

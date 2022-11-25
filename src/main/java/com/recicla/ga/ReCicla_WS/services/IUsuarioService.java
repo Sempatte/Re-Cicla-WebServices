@@ -22,4 +22,8 @@ public interface IUsuarioService {
 
     public Optional<Usuario> findUserByID(int idUsuario);
 
+    List <Usuario> ListarQueryDistrito();
+    List <Usuario> ListarQuery2();
+    List <Usuario> ListarQuery3();
+
 }

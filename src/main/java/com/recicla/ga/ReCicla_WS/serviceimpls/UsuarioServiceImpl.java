@@ -82,4 +82,20 @@ public class UsuarioServiceImpl implements IUsuarioService {
     public List<Usuario> buscarHistorial(String busquedas) {
         return userService.buscarHistorial(busquedas);
     }
+
+    @Override
+    public List<Usuario> ListarQueryDistrito() {
+        return userService.ListarQueryDistrito();
+    }
+
+    @Override
+    public List<Usuario> ListarQuery2() {
+        return userService.ListarQuery2();
+    }
+
+    @Override
+    public List<Usuario> ListarQuery3() {
+        return userService.ListarQuery3();
+    }
+
 }
