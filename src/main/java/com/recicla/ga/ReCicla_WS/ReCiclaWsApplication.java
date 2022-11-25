@@ -7,7 +7,6 @@ import java.io.IOException;
 
 @SpringBootApplication
 public class ReCiclaWsApplication {
-
 	public static void main(String[] args) throws IOException {
 
 		SpringApplication.run(ReCiclaWsApplication.class, args);

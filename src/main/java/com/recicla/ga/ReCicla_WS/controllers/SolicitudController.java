@@ -1,5 +1,6 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
+import com.recicla.ga.ReCicla_WS.entities.RespuestaSolicitud;
 import com.recicla.ga.ReCicla_WS.entities.Solicitud;
 import com.recicla.ga.ReCicla_WS.services.ISolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,8 @@ public class SolicitudController {
     }
     @GetMapping("/{id}")
     public Optional<Solicitud>listarID(@PathVariable("id")Integer id){return solicitudService.findSolicitudByID(id);}
-
+    @GetMapping("/cantidades")
+    List<RespuestaSolicitud>findbyCantidadSolixDis(){
+    return  solicitudService.cantidadSolisxDistrito();
+    }
 }
