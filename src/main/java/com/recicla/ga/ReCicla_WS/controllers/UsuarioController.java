@@ -60,5 +60,18 @@ public class UsuarioController {
         return userService.findUserByID(id);
     }
 
+    @GetMapping("/ListarQuery1")
+    public List<Usuario> ListarQueryDistrito() {
+        return userService.ListarQueryDistrito();
+    }
 
+    @GetMapping("/ListarQuery2")
+    public List<Usuario> ListarQuery2() {
+        return userService.ListarQuery2();
+    }
+
+    @GetMapping("/ListarQuery3")
+    public List<Usuario> ListarQuery3() {
+        return userService.ListarQuery3();
+    }
 }

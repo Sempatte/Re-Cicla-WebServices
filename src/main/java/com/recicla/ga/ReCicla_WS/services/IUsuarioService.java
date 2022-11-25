@@ -16,8 +16,9 @@ public interface IUsuarioService {
     List<Usuario> buscarDireccion(String direccion);
     List<Usuario> buscarHistorial(String busquedas);
     List<Usuario> buscarUsuario(String UserNames);
-
-
+    List <Usuario> ListarQueryDistrito();
+    List <Usuario> ListarQuery2();
+    List <Usuario> ListarQuery3();
     public Optional<Usuario> findUserByID(int idUsuario);
 
 }
