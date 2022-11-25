@@ -61,4 +61,9 @@ public class TicketServiceImpl implements ITicketService {
     public Optional<Ticket> findTicketByID(int idTicket) {
         return Optional.of(ticketService.findById(idTicket).orElse(new Ticket()));
     }
+
+    @Override
+    public List<Ticket> ObtenerTicketConFechaMayorADiciembre() {
+        return ticketService.ObtenerTicketConFechaMayorADiciembre();
+    }
 }

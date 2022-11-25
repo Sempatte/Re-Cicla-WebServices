@@ -15,4 +15,6 @@ public interface ITicketService {
 
     List <Ticket> obtenerTicketsImportanciaAlta();
     public Optional<Ticket> findTicketByID(int idTicket);
+
+    List<Ticket> ObtenerTicketConFechaMayorADiciembre();
 }

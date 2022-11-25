@@ -40,4 +40,9 @@ public class TicketController {
     public List<Ticket> obtenerTicketsImportanciaAlta() {
         return ticketService.obtenerTicketsImportanciaAlta();
     }
+
+    @GetMapping("/ObtenerTicketFechaMayorADiciembre")
+    public List<Ticket> ObtenerTicketConFechaMayorADiciembre(){
+        return ticketService.ObtenerTicketConFechaMayorADiciembre();
+    }
 }

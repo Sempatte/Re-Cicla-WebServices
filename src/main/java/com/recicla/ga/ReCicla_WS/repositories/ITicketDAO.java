@@ -21,4 +21,9 @@ public interface ITicketDAO extends JpaRepository<Ticket, Integer>{
     // 2. Listar todos los tickets que tengan una importancia Alta - QUERY SEBASTIAN
     @Query(value="select distinct t.* from ticket t INNER JOIN tipo_ticket tt On t.tipo_ticket_id = tt.id WHERE tt.importancia = 'Alta'", nativeQuery = true)
     List<Ticket> obtenerTicketsImportanciaAlta();
+
+    // Listar los usuarios que tenga tickets con una fecha mayor al mes de diciembre - QUERY BRIAN
+    @Query(value="SELECT * FROM ticket t where EXTRACT(MONTH FROM t.fecha) > 11", nativeQuery = true)
+    List<Ticket> ObtenerTicketConFechaMayorADiciembre();
+
 }
