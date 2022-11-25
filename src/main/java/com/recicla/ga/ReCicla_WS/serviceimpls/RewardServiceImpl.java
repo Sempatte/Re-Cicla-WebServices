@@ -53,6 +53,11 @@ public class RewardServiceImpl implements IRewardService {
     }
 
     @Override
+    public List<Reward> buscarCelulares() {
+        return rewardService.buscarRewardsCelular();
+    }
+
+    @Override
     public Optional<Reward> findUserByID(int idReward) {
         return Optional.of(rewardService.findById(idReward).orElse(new Reward()));
     }

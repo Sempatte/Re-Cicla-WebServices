@@ -14,7 +14,7 @@ public interface IRewardService {
 
     List<Reward> buscarType(String idType);
     List<Reward> buscarRewardName(String Name);
-
+    List<Reward>buscarCelulares();
     public Optional<Reward> findUserByID(int idReward);
 
 }
