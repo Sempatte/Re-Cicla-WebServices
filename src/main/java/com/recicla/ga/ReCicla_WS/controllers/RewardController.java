@@ -51,5 +51,9 @@ public class RewardController {
         return rewardService.listarId(id);
     }
 
+    @GetMapping("/RewardsCelulares")
+    public List<Reward>obtenerCelulares(){
+        return rewardService.buscarCelulares();
+    }
 
 }
