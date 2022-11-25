@@ -15,4 +15,5 @@ public interface ISolicitudService {
     List<Solicitud> buscarDistritoSolicitud(String distrito);
     public Optional<Solicitud> findSolicitudByID(int idSolicitud);
     List<RespuestaSolicitud> cantidadSolisxDistrito();
+    List<Solicitud>mostrarbotelleros();
 }
