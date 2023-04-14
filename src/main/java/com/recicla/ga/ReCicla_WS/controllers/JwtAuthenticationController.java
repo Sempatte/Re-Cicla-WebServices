@@ -1,7 +1,6 @@
 package com.recicla.ga.ReCicla_WS.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -13,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.recicla.ga.ReCicla_WS.security.JwtRequest;
-import com.recicla.ga.ReCicla_WS.security.JwtResponse;
-import com.recicla.ga.ReCicla_WS.security.JwtTokenUtil;
+import com.recicla.ga.ReCicla_WS.utils.security.JwtRequest;
+import com.recicla.ga.ReCicla_WS.utils.security.JwtResponse;
+import com.recicla.ga.ReCicla_WS.utils.security.JwtTokenUtil;
 import com.recicla.ga.ReCicla_WS.serviceimpls.JwtUserDetailsService;
 
 @RestController
